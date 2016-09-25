@@ -19,7 +19,7 @@ result.sum("payment")
 grouped = result.groupby("device_id")
 grouped.sum()
 
---------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Question 2
 # Suppose on the day of 11/25, players have made none, one, or more payment transactions, ask to provice the total payment of each player when total payment is more than $20 and user name is not "internal_employee".
 
