@@ -8,11 +8,11 @@ import pandas as pd
 
 
 s1 = pd.DataFrame({"device_id": ["00001", "00003", "00009"], 
-				"payment": [20.20, 4.99, 12.5]})
+		"payment": [20.20, 4.99, 12.5]})
 s2 = pd.DataFrame({"device_id": ["00001", "00003", "00009"], 
-				"payment": [0, 55.00, 6.50]})
+		"payment": [0, 55.00, 6.50]})
 s3 = pd.DataFrame({"device_id": ["00001", "00003", "00009"], 
-				"payment": [9.99, 29.99, 0]})
+		"payment": [9.99, 29.99, 0]})
 
 result = pd.concat([s1, s1, s3])
 result.sum("payment")
