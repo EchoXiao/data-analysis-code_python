@@ -1,4 +1,3 @@
-# Data Analysis with python
 
 # Question 1
 # Given a game with device id and payment on each day, and given the data on three days, ask to calculate all the payment for each device in these three days.
