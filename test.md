@@ -1,9 +1,7 @@
-# data_analysis_python
-
+# Simple Data Analysis with python
 
 # Question 1
-# Given a game with device id and payment on each day, and given the data on three 
-# days, ask to calculate all the payment for each device in these three days.
+# Given a game with device id and payment on each day, and given the data on three days, ask to calculate all the payment for each device in these three days.
 
 import numpy as np
 import pandas as pd
@@ -23,9 +21,7 @@ grouped.sum()
 
 --------------------------------------------------------------------------------------
 # Question 2
-# Suppose on the day of 11/25, players have made none, one, or more payment transactions,
-# ask to provice the total payment of each player when total payment is more than $20 and
-# user name is not "internal_employee".
+# Suppose on the day of 11/25, players have made none, one, or more payment transactions, ask to provice the total payment of each player when total payment is more than $20 and user name is not "internal_employee".
 
 
 
