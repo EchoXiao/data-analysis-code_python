@@ -1,5 +1,4 @@
-# environmet setting: sublime 2, Anaconda2
-# the libraries I used are listed below
+# environmet setting: sublime 2.7, Anaconda2
 
 import pandas as pd 
 import numpy as np 
@@ -12,7 +11,6 @@ import datetime
 # this is the initial time
 start = datetime.datetime.now()
 
-#-----------------------------------------------------------------------
 # input files from my desktop
 users = pd.read_csv("C:\Users\XiaoQ\Desktop\users.csv")
 orders = pd.read_csv("C:\Users\XiaoQ\Desktop\orders.csv")
@@ -20,12 +18,6 @@ orders = pd.read_csv("C:\Users\XiaoQ\Desktop\orders.csv")
 # date0 means the running time for reading csv files
 date0 = datetime.datetime.now()
 
-
-
-
-
-
-#-----------------------------------------------------------------------
 # deliverable 1
 # merge two files with the key "user_id"
 merged = pd.merge(users, orders, on = "user_id")
@@ -60,16 +52,6 @@ print result.sort_values(by = "purchased_num", ascending = False).head(3)
 # the running time till finishing problem 1
 date1 = datetime.datetime.now()
 
-
-
-
-
-
-
-
-
-#--------------------------------------------
-# deliverable 2a
 # call groupby with the columns "sources" and "state"
 # size the users acquied through that channel
 users_num = merged.groupby(["state", "source"]).size()
@@ -85,16 +67,6 @@ print users_num[users_num.state == "AK"][users_num.source == "fb"]
 # the running time till finishing problem 2a
 date2a = datetime.datetime.now()
 
-
-
-
-
-
-
-
-
-# --------------------------------------------
-# deliverable 2b
 # call groupby with the columns "state" and "source"
 # calculate the sum of order_value
 # reset the index of value_sum
@@ -109,15 +81,6 @@ print value_sum[value_sum.state == "AK"].sort_values(by = "order_value", ascendi
 date2b = datetime.datetime.now()
 
 
-
-
-
-
-
-
-
-#--------------------------------------------
-# deliverable 3a
 # call groupby with the columns "state", "gender" and "source"
 # calculate the size of "user_id" group
 # the acquired_num is the numbers of user aqcuired
@@ -145,14 +108,6 @@ print concated[concated.gender == "male"]
 # the running time till finishing problem 3a
 date3a = datetime.datetime.now()
 
-
-
-
-
-
-
-#-----------------------------------------------------
-# deliverable 3b
 
 # reset the index of merged table
 merged = merged.reset_index()
@@ -199,21 +154,4 @@ print diff3a
 print diff3b
 print diff
 
-# mprof run <script>
-# mprof plot
 
-#---------------------------------------------------
-# instruction 2
-# I use datatime to calculate the running time for each process. 
-# But the whole program finished in 8.1 seconds. It will work if
-# the file is largers or the process is much complicated.
-
-# I used the package "memory_profiler" to calculate the memory usage.
-# Unfortanatly, it doesn't work.
-
-#---------------------------------------------------------
-# instrctions 3
-# I would use all the data. Instead, I would partition the
-# data into several tables or databases. By managing the 
-# relationship between tables and databases, Python could 
-# speed up the time of processing records.
