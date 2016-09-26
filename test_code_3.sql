@@ -3,9 +3,9 @@ select * from orders table                                    select * from user
 +---------------------------------+                           +-------------------------------------+
 | id    | user_id | rental_type |                             | id   | email_add     | phone_num    |
 | 1234  | 0001    | hto         |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
-| 1235  | 0002    | audio_hto   |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
-| 1236  | 0003    | purchase    |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
-| 1237  | 0001    | hto         |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
+| 1235  | 0002    | audio_hto   |                             | 0002 | xxx@gmail.com | xxx-xxxx-xxx |
+| 1236  | 0003    | purchase    |                             | 0003 | xxx@gmail.com | xxx-xxxx-xxx |
+| 1237  | 0001    | hto         |                             | 0004 | xxx@gmail.com | xxx-xxxx-xxx |
 +---------------------------------+                           +-------------------------------------+
 
 select * from products table                                  select * from order_products table
