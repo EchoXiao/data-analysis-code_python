@@ -1,4 +1,34 @@
 
+select * from orders table                                    select * from users table
++---------------------------------+                           +-------------------------------------+
+| id    | user_id | rental_type |                             | id   | email_add     | phone_num    |
+| 1234  | 0001    | hto         |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
+| 1235  | 0002    | audio_hto   |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
+| 1236  | 0003    | purchase    |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
+| 1237  | 0001    | hto         |                             | 0001 | xxx@gmail.com | xxx-xxxx-xxx |
++---------------------------------+                           +-------------------------------------+
+
+select * from products table                                  select * from order_products table
++-------------------+                                         +--------------------+
+| id    | type     |                                          | user_id | order_id |
+| 00001 | wearable |                                          | 00001   | 00001    |
+| 00002 | photo    |                                          | 00002   | 00002    |
+| 00003 | audio    |                                          | 00003   | 00004    |    
+| 00004 | drone    |                                          | 00001   | 00005    |
++-------------------+                                         +--------------------+
+
+select * from price table
++-----------------------------------------------------+
+| prod_id | price_4 | price_8 | price_12 | price_15 |
+| 0001    | 30      |  4      |   4      |   4      |
+| 0002    | 20      |  2      |   2      |   2      |
+| 0003    | 40      |  10     |   3      |   3      |
+| 0004    | 30      |  4      |   4      |   4      |
++-----------------------------------------------------+
+
+
+
+
   
 # new user orders vs. repeat users orders 
   
