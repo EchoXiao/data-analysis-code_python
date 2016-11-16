@@ -1,0 +1,7 @@
+select count(distinct(hawb)), date_trunc('month', date)
+from check_point
+inner join hawb using(hawb)
+inner join mawb using(mawb)
+where left(agent_ref, 2) = '1Z'
+group by date_trunc('month', date)
+order by date_trunc('month', date)
