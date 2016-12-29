@@ -1,0 +1,97 @@
+import psycopg2 as sql
+import pandas as pd 
+import csv
+import os
+import re
+
+
+def conn2obdb():  # connect to outbound database
+    con = sql.connect(user="pguser",
+                      password="pguser",
+                      host="96.64.200.166",
+                      port=5432,
+                      database="sf_us_ob_vendor")
+    con.autocommit = True
+    return con.cursor()
+
+
+
+def uploadfile(filelocation):
+
+	with open("D:\\UPS_INVOICE\\UPS.csv") as csvfile:
+		csvfile = csv.reader(csvfile,  delimiter = ',')
+		for line in csvfile:
+			ups_tracking_num = line[0]
+			Package_Reference_Number_1 = line[1]
+			Entered_Weight = line[2]
+			Billed_Weight = line[3]
+			Charge_Code = line[4]
+			Charge_Description = line[5]
+			Basis_Value = line[6]
+			Incentive_Amount = line[7]
+			Net_Amount = line[8]
+
+			# zone = line[8]
+			sql = """INSERT INTO ups_temp_invoice 
+				(ups_tracking_num, 
+				Package_Reference_Number_1, 
+				Entered_Weight, 
+				Billed_Weight, 
+				Charge_Code, 
+				Charge_Description,
+				Basis_Value,
+				Incentive_Amount,
+				Net_Amount) 
+				values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') """ % (ups_tracking_num,
+				Package_Reference_Number_1,
+				Entered_Weight,
+				Billed_Weight,
+				Charge_Code,
+				Charge_Description,
+				Basis_Value,
+				Incentive_Amount,
+				Net_Amount)
+
+
+			cur = conn2obdb()
+			cur.execute(sql)
+
+
+# def main():
+# 	filepath = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    for path, dirs, files in os.walk(r'/home/ftp/ftp/US_SF_BSP'):
+        for names in files:
+            #print(os.path.join(path, names))
+            #print(re.search('Imported.data',path))
+            if re.search('(Imported.data|Generated.data)', path):
+                # print(path, "PASS")
+                pass
+            else:
+                print(names)
+                input_bsp(os.path.join(path, names))
+                date_time = datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S')
+                #print(date_time)
+                os.rename(os.path.join(path, names), path + '/Imported_data/' + date_time + "_" + names)
